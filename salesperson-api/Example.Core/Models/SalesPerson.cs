@@ -12,6 +12,7 @@ namespace Example.Core.Models
         }
 
         public string Name { get; set; }
+        public bool IsBusy { get; set; }
         public ICollection<SalesGroup> Groups { get; set; }
     }
 }

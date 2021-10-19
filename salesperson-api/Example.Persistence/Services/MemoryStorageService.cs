@@ -21,7 +21,7 @@ namespace Example.Persistence.Services
         {
             if (MemoryStorage == null)
             {
-                MemoryStorage = await PersistenceStorageService.GetDataFromPersistenceAsync();
+                await ResetStorageAsync();
             }
 
             return MemoryStorage.SalesPeople;
@@ -31,10 +31,15 @@ namespace Example.Persistence.Services
         {
             if (MemoryStorage == null)
             {
-                MemoryStorage = await PersistenceStorageService.GetDataFromPersistenceAsync();
+                await ResetStorageAsync();
             }
 
             return MemoryStorage.SalesGroups;
+        }
+
+        public async Task ResetStorageAsync()
+        {
+            MemoryStorage = await PersistenceStorageService.GetDataFromPersistenceAsync();
         }
     }
 }
