@@ -7,6 +7,7 @@ namespace Example.Core.Models
         public SalesPerson(string name)
         {
             Name = name;
+            IsBusy = false;
 
             Groups = new List<SalesGroup>();
         }

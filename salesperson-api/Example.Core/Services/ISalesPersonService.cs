@@ -1,11 +1,11 @@
-using System.Collections.Generic;
 using Example.Core.Models;
+using System.Threading.Tasks;
 
 namespace Example.Core.Services
 {
     public interface ISalesPersonService
     {
-        IEnumerable<SalesPerson> List();
+        public Task<SalesPerson> AssignBestSalePersonAsync();
     }
 
 }

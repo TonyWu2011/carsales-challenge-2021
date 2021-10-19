@@ -1,22 +1,23 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Example.Core.Models;
 using Example.Core.Services;
+using Example.Persistence.Services;
 
 namespace Example.Infrastructure.Services
 {
     public class FakeSalesPersonService : ISalesPersonService
     {
-        public IEnumerable<SalesPerson> List()
+        private IStorageService StorageService { get; }
+
+        public FakeSalesPersonService(IStorageService storageService)
         {
-            return new List<SalesPerson>
-            {
-                new SalesPerson {
-                    Name = "John"
-                },
-                new SalesPerson {
-                    Name = "Barney"
-                }
-            };
+            StorageService = storageService;
+        }
+
+        public Task<SalesPerson> AssignBestSalePersonAsync()
+        {
+            throw new System.NotImplementedException();
         }
     }
 
