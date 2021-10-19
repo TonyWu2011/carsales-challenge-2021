@@ -1,5 +1,4 @@
 ﻿using Example.Core.Models;
-using Example.Core.Services;
 using Example.Persistence.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
