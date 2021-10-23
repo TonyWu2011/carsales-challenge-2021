@@ -9,7 +9,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace Example.Persistence.Tests
+namespace Example.Infrastructure.Tests
 {
     public class SalesPersonServiceTest
     {

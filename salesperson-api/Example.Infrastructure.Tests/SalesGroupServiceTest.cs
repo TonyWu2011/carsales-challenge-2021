@@ -5,7 +5,7 @@ using Example.Persistence.Services;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace Example.Persistence.Tests
+namespace Example.Infrastructure.Tests
 {
     public class SalesGroupServiceTest
     {
