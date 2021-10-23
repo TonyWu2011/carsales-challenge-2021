@@ -1,7 +1,7 @@
-﻿using Example.Persistence.Models;
+﻿using Example.Core.Models.Persistence;
 using System.Threading.Tasks;
 
-namespace Example.Persistence.Services
+namespace Example.Core.Services.Persistence
 {
     public interface IPersistenceStorageService
     {

@@ -1,4 +1,5 @@
-﻿using Example.Persistence.Services;
+﻿using Example.Core.Services.Persistence;
+using Example.Persistence.Services;
 using System.Threading.Tasks;
 using Xunit;
 

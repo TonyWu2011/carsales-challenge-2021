@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Example.Persistence.Services
+namespace Example.Core.Services.Persistence
 {
     public interface IStorageService
     {

@@ -1,7 +1,7 @@
 ﻿using Example.Core.Models;
 using System.Collections.Generic;
 
-namespace Example.Persistence.Models
+namespace Example.Core.Models.Persistence
 {
     public class MemoryStorage
     {

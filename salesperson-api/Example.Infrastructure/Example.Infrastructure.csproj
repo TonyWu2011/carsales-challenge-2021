@@ -2,7 +2,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Example.Core\Example.Core.csproj" />
-    <ProjectReference Include="..\Example.Persistence\Example.Persistence.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

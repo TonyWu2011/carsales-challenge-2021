@@ -1,5 +1,6 @@
 ﻿using Example.Core.Models;
-using Example.Persistence.Models;
+using Example.Core.Models.Persistence;
+using Example.Core.Services.Persistence;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Threading.Tasks;

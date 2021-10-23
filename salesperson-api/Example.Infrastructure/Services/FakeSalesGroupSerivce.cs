@@ -1,7 +1,7 @@
 ﻿using Example.Core.Enums;
 using Example.Core.Models;
 using Example.Core.Services;
-using Example.Persistence.Services;
+using Example.Core.Services.Persistence;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;

@@ -1,5 +1,7 @@
 using Example.Core.Services;
+using Example.Core.Services.Persistence;
 using Example.Infrastructure.Services;
+using Example.Persistence.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -20,8 +22,11 @@ namespace Example.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddScoped<IPersistenceStorageService, JsonStorageService>();
+            services.AddScoped<IStorageService, MemoryStorageService>();
+            services.AddScoped<IReferenceDataService, ReferenceDataService>();
             services.AddScoped<ISalesPersonService, FakeSalesPersonService>();
+            services.AddScoped<ISalesGroupService, FakeSalesGroupSerivce>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

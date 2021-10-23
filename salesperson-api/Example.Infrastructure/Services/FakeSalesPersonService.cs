@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Example.Core.Enums;
 using Example.Core.Models;
 using Example.Core.Services;
-using Example.Persistence.Services;
+using Example.Core.Services.Persistence;
 
 namespace Example.Infrastructure.Services
 {
