@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace Example.Core.Models
 {
@@ -14,6 +15,7 @@ namespace Example.Core.Models
 
         public string Name { get; set; }
         public bool IsBusy { get; set; }
+        [JsonIgnore]
         public ICollection<SalesGroup> Groups { get; set; }
     }
 }

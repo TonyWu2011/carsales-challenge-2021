@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace Example.Core.Models
 {
@@ -12,6 +13,7 @@ namespace Example.Core.Models
         }
 
         public string Name { get; set; }
+        [JsonIgnore]
         public ICollection<SalesPerson> Members { get; set; }
     }
 }
