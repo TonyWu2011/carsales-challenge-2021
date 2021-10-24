@@ -3,6 +3,7 @@ import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+import { environment } from 'src/environments/environment';
 import { SalesGroup } from '../interfaces/sales-group';
 
 @Injectable({
@@ -16,7 +17,7 @@ export class SalesGroupService {
     private http: HttpClient) { }
 
   getSalesGroups(): Observable<SalesGroup[]> {
-    return this.http.get<SalesGroup[]>(this.salesGroupUrl)
+    return this.http.get<SalesGroup[]>(`${environment.apiBaseUrl}${this.salesGroupUrl}`)
     .pipe(
       catchError(this.handleError<SalesGroup[]>('getSalesGroups', []))
     );

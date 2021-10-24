@@ -20,6 +20,8 @@ namespace Example.Api
 
         public IConfiguration Configuration { get; }
 
+        private readonly string MyAllowSpecificOrigins = "DevelopmentWebsite";
+
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<IPersistenceStorageService, JsonStorageService>();
@@ -27,6 +29,17 @@ namespace Example.Api
             services.AddScoped<IReferenceDataService, ReferenceDataService>();
             services.AddScoped<ISalesPersonService, FakeSalesPersonService>();
             services.AddScoped<ISalesGroupService, FakeSalesGroupSerivce>();
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: MyAllowSpecificOrigins,
+                                  builder =>
+                                  {
+                                      builder.WithOrigins("http://localhost:4200")
+                                        .AllowAnyHeader()
+                                        .AllowAnyMethod();
+                                  });
+            });
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -47,6 +60,8 @@ namespace Example.Api
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors(MyAllowSpecificOrigins);
 
             app.UseAuthorization();
 

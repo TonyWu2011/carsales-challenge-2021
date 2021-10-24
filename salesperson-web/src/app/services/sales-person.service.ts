@@ -3,6 +3,7 @@ import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+import { environment } from 'src/environments/environment';
 import { SalesPerson } from '../interfaces/sales-person';
 import { SalesPersonRequest } from '../interfaces/sales-person-request';
 import { SalesPersonResponse } from '../interfaces/sales-person-response';
@@ -18,7 +19,7 @@ export class SalesPersonService {
     private http: HttpClient) { }
 
   getSalesPeople(): Observable<SalesPerson[]> {
-    return this.http.get<SalesPerson[]>(this.salesPersonUrl)
+    return this.http.get<SalesPerson[]>(`${environment.apiBaseUrl}${this.salesPersonUrl}`)
     .pipe(
       catchError(this.handleError<SalesPerson[]>('getSalesPerson', []))
     );
@@ -34,7 +35,7 @@ export class SalesPersonService {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     };
 
-    return this.http.post<SalesPersonResponse>('${salesPersonUrl}/AssignFree', salesPersonRequest, httpOptions)
+    return this.http.post<SalesPersonResponse>(`${environment.apiBaseUrl}${this.salesPersonUrl}/AssignFree`, salesPersonRequest, httpOptions)
       .pipe (
         catchError(this.handleError<SalesPersonResponse>('assignSalesPerson', {} as SalesPersonResponse))
       );

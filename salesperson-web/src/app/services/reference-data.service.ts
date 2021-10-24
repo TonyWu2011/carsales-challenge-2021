@@ -3,6 +3,7 @@ import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+import { environment } from 'src/environments/environment';
 import { ReferenceData } from '../interfaces/reference-data';
 
 @Injectable({
@@ -16,7 +17,7 @@ export class ReferenceDataService {
     private http: HttpClient) { }
 
   getReferenceData(): Observable<ReferenceData> {
-    return this.http.get<ReferenceData>(this.referenceDataUrl)
+    return this.http.get<ReferenceData>(`${environment.apiBaseUrl}${this.referenceDataUrl}`)
     .pipe(
       catchError(this.handleError<ReferenceData>('getReferenceData', {} as ReferenceData))
     );
