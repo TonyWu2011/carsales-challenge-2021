@@ -24,7 +24,7 @@ namespace Example.Api.Controllers
             return Ok(await SalesPersonService.GetSalesPeopleAsync());
         }
 
-        [HttpGet]
+        [HttpPost]
         [Route("AssignFree")]
         public async Task<ActionResult<SalesPerson>> AssignFreeSalesPerson(SalesPersonRequest request)
         {
