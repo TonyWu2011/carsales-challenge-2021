@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, of , Subject} from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
@@ -15,8 +15,10 @@ export class SalesPersonService {
 
   private salesPersonUrl = 'SalesPerson';  // URL to web api
 
-  constructor(
-    private http: HttpClient) { }
+  private salesPeopleUpdatedSource = new Subject();
+  salesPeopleUpdated = this.salesPeopleUpdatedSource.asObservable();
+
+  constructor(private http: HttpClient) { }
 
   getSalesPeople(): Observable<SalesPerson[]> {
     return this.http.get<SalesPerson[]>(`${environment.apiBaseUrl}${this.salesPersonUrl}`)
@@ -39,6 +41,10 @@ export class SalesPersonService {
       .pipe (
         catchError(this.handleError<SalesPersonResponse>('assignSalesPerson', {} as SalesPersonResponse))
       );
+  }
+
+  salesPeopleChanged(): void {
+    this.salesPeopleUpdatedSource.next();
   }
 
   /**

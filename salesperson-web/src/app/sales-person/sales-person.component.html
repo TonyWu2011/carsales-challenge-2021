@@ -1,0 +1,15 @@
+<h2>Sales People</h2>
+<ul class="sales-people-list">
+    <li *ngFor="let person of salesPeople">
+        <div class="sales-person-name">{{person.name}}</div>
+        <div class="sales-person-availability-label">
+            Available:
+            <span class="sales-person-availability">{{!person.isBusy}}</span>
+        </div>
+        <div class="sales-person-groups-list">
+            Groups:
+            <span *ngFor="let group of person.groups" class="sales-person-groups">[{{group}}] </span>
+        </div>
+        <br />
+    </li>
+</ul>

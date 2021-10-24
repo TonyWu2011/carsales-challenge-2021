@@ -24,8 +24,9 @@ namespace Example.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<IPersistenceStorageService, JsonStorageService>();
-            services.AddScoped<IStorageService, MemoryStorageService>();
+            services.AddSingleton<IPersistenceStorageService, JsonStorageService>();
+            services.AddSingleton<IStorageService, MemoryStorageService>();
+
             services.AddScoped<IReferenceDataService, ReferenceDataService>();
             services.AddScoped<ISalesPersonService, FakeSalesPersonService>();
             services.AddScoped<ISalesGroupService, FakeSalesGroupSerivce>();

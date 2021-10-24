@@ -1,4 +1,5 @@
-﻿using Example.Core.Models;
+﻿using Example.Core.Enums;
+using Example.Core.Models;
 using Example.Core.Models.DTOs;
 using Example.Core.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -34,7 +35,8 @@ namespace Example.Api.Controllers
         {
             var salesPersonResponse = new SalesPersonResponse();
 
-            salesPersonResponse.SalesPerson = await SalesPersonService.AssignBestSalePersonAsync(request.CarType, request.LanguageOption);
+            salesPersonResponse.SalesPerson = await SalesPersonService.AssignBestSalePersonAsync((CarType)request.CarType, (LanguageOption)request.LanguageOption);
+
             salesPersonResponse.SalesPersonFound = salesPersonResponse.SalesPerson != null;
 
             return Ok(salesPersonResponse);

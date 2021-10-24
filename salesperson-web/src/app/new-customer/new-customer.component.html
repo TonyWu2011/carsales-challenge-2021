@@ -1,0 +1,30 @@
+<h2>New Customer</h2>
+
+<table class="new-customer-options">
+    <tr>
+        <td>Looking For:</td>
+        <td>
+            <select required [(ngModel)]="selectedCarType">
+                <option *ngFor="let carType of referenceData.carTypes | keyvalue" [value]="carType.key">{{carType.value}}</option>
+            </select>
+        </td>
+    </tr>
+
+    <tr>
+        <td>Language:</td>
+        <td>
+            <select required [(ngModel)]="selectedLanguageOption">
+                <option *ngFor="let language of referenceData.languageOptions | keyvalue" [value]="language.key">{{language.value}}</option>
+            </select>
+        </td>
+    </tr>
+</table>
+
+<div class="action-buttons">
+    <button class="button" (click)="getFreeSalesPerson();">Get sales person</button>
+    <button class="button" (click)="resetStorage();">Reset</button>
+</div>
+
+<div class="output-message">
+    {{outputMessage}}
+</div>
