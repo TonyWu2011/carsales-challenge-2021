@@ -3,6 +3,7 @@ using Example.Core.Models.DTOs;
 using Example.Core.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Example.Api.Controllers
@@ -19,9 +20,12 @@ namespace Example.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<ICollection<SalesPerson>>> GetAll()
+        public async Task<ActionResult<ICollection<SalesPersonDTO>>> GetAll()
         {
-            return Ok(await SalesPersonService.GetSalesPeopleAsync());
+            var salesPeople = await SalesPersonService.GetSalesPeopleAsync();
+            var result = salesPeople.Select(x => new SalesPersonDTO(x)).ToList();
+
+            return Ok(result);
         }
 
         [HttpPost]
